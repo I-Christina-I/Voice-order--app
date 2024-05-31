@@ -1,0 +1,10 @@
+<view class="container">
+  <button
+    bindtouchstart="startRecording"
+    bindtouchend="stopRecording"
+    bindtouchcancel="stopRecording"
+  >
+    按住说话
+  </button>
+  <text>{{response}}</text>
+</view>

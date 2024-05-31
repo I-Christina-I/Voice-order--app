@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="conversation">
+    <block wx:for="{{conversationHistory}}" wx:key="index">
+      <view class="message {{item.role}}">
+        <view class="bubble">{{item.content[0].text}}</view>
+      </view>
+    </block>
+  </view>
+  <input 
+    bindinput="onInputChange" 
+    value="{{inputValue}}" 
+    placeholder="请输入内容" 
+    class="input" 
+  />
+  <button bindtap="onCallApi" class="send-button">发送</button>
+</view>
