@@ -6,5 +6,5 @@
   >
     按住说话
   </button>
-  <text>{{response}}</text>
+  <text>{{recognitionResult}}</text>
 </view>
