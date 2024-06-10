@@ -1,33 +1,15 @@
 <!--index.wxml-->
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
-    <view class="userinfo">
-      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-        </button>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
-        </view>
-      </block>
-      <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
-      </block>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
-    </view>
+    
     <view class="usermotto">
       <text class="user-motto">{{motto}}</text>
     </view>
-    <view class="container" style="width: 397rpx; height: 499rpx; display: flex; box-sizing: border-box; position: relative; left: 0rpx; top: -475rpx">
-    <button bindtap="navigateToVoice" style="width: 343rpx; height: 77rpx; display: block; box-sizing: border-box; left: 0rpx; top: -37rpx; position: relative">跳转到录音页面</button>
-    </view>
-    <view class="container">
-    <button bindtap="navigateToAI" style="position: relative; left: 0rpx; top: -852rpx; width: 374rpx; height: 95rpx; display: block; box-sizing: border-box">跳转到AI对话页面</button>
+    <view class="container" style="width: 408rpx; height: 902rpx; display: flex; box-sizing: border-box; position: relative; left: 0rpx; top: -392rpx">
+    <button bindtap="navigateToVoice" style="width: 343rpx; height: 77rpx; display: block; box-sizing: border-box; left: 0rpx; top: -116rpx; position: relative">跳转到录音页面</button>
+    <button bindtap="navigateToAI"  style="width: 374rpx; height: 77rpx; display: block; box-sizing: border-box; left: 0rpx; top: -25rpx; position: relative">跳转到AI对话页面</button>
+    <button bindtap="navigateToEvaluate"  style="position: relative; left: 0rpx; top: 206rpx">跳转到语音评测页面</button>
+    <button bindtap="navigateToStory"  style="position: relative; left: 0rpx; top: -27rpx">跳转到故事页面</button>
     </view>
   </view>
 </scroll-view>

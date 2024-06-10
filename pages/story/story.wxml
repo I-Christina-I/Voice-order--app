@@ -1,0 +1,134 @@
+<view class="container">
+  <image src="{{resultImagePath}}" mode="widthFix" class="result-image" style="position: relative; left: 17rpx; top: -20rpx; width: 679rpx; height: 227rpx; display: block; box-sizing: border-box"></image>
+  <!-- 控制显示和隐藏的按钮 -->
+  <button bindtap="toggleComponents" class="toggle-button" style="width: 102rpx; height: 85rpx; display: block; box-sizing: border-box; left: 304rpx; top: -20rpx; position: relative; size: a3">日志</button>
+  <!-- 需要隐藏的组件 -->
+  <view wx:if="{{showComponents}}">
+    <view class="conversation" style="width: 712rpx; height: 502rpx; display: block; box-sizing: border-box">
+      <block wx:for="{{conversationHistory}}" wx:key="index">
+        <view class="message {{item.role}}">
+          <view class="bubble">{{item.content[0].text}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <button wx:if="{{buttonVisible}}" bindtap="showCards" class="toggle-button" style="position: relative; left: -2rpx; top: -99rpx">显示卡片</button>
+   <!-- 卡片容器 -->
+   <view wx:if="{{showCards}}" class="overlay">
+    <view class="row">
+      <view class="card-container" data-index="0" bindtap="flipCard">
+        <view class="card {{flipped0 ? 'flipped' : ''}}">
+          <view class="card-front">卡片 1 正面</view>
+          <view class="card-back">
+            <text class="card-title">角色名称: {{roleInf[0][0]}}</text>
+            <text class="card-subtitle">角色性格: {{roleInf[0][1]}}</text>
+            <text class="card-content">角色描述: {{roleInf[0][2]}}</text>
+          </view>
+        </view>
+        <button class="select-button" bindtap="selectCard" data-index="0">选中</button>
+      </view>
+      <view class="card-container" data-index="1" bindtap="flipCard">
+        <view class="card {{flipped1 ? 'flipped' : ''}}">
+          <view class="card-front">卡片 2 正面</view>
+          <view class="card-back">
+            <text class="card-title">角色名称: {{roleInf[1][0]}}</text>
+            <text class="card-subtitle">角色性格: {{roleInf[1][1]}}</text>
+            <text class="card-content">角色描述: {{roleInf[1][2]}}</text>
+          </view>
+        </view>
+        <button class="select-button" bindtap="selectCard" data-index="1">选中</button>
+      </view>
+    </view>
+    <view class="row">
+      <view class="card-container" data-index="2" bindtap="flipCard">
+        <view class="card {{flipped2 ? 'flipped' : ''}}">
+          <view class="card-front">卡片 3 正面</view>
+          <view class="card-back">
+            <text class="card-title">角色名称: {{roleInf[2][0]}}</text>
+            <text class="card-subtitle">角色性格: {{roleInf[2][1]}}</text>
+            <text class="card-content">角色描述: {{roleInf[2][2]}}</text>
+          </view>
+        </view>
+        <button class="select-button" bindtap="selectCard" data-index="2">选中</button>
+      </view>
+      <view class="card-container" data-index="3" bindtap="flipCard">
+        <view class="card {{flipped3 ? 'flipped' : ''}}">
+          <view class="card-front">卡片 4 正面</view>
+          <view class="card-back">
+            <text class="card-title">角色名称: {{roleInf[3][0]}}</text>
+            <text class="card-subtitle">角色性格: {{roleInf[3][1]}}</text>
+            <text class="card-content">角色描述: {{roleInf[3][2]}}</text>
+          </view>
+        </view>
+        <button class="select-button" bindtap="selectCard" data-index="3">选中</button>
+      </view>
+    </view>
+    <button bindtap="hideCards" class="close-button">关闭</button>
+  </view>
+  <view class="chat-bubble background" style="position: relative; left: -2rpx; top: -106rpx">
+  <text>{{narratorText}}</text>
+  </view>
+  <!--角色图片-->
+  <view class="rowRole" style="position: relative; left: 0rpx; top: -53rpx; width: 712rpx; height: 312rpx; display: flex; box-sizing: border-box">
+    <view class="character-container" style="position: relative; left: -34rpx; top: 0rpx">
+      <view class="chat-bubble role">
+      <text>{{roletext[0]}}</text>
+      </view>
+      <view class="image_role-container">
+        <image src="../../images/兔子.png" class="image_role"></image>
+      </view>
+    </view>
+    <view class="character-container" style="position: relative; left: -34rpx; top: 0rpx">
+      <view class="chat-bubble role">
+      <text>{{roletext[1]}}</text>
+      </view>
+      <view class="image_role-container">
+        <image src="../../images/小狐狸.png" class="image_role"></image>
+      </view>
+    </view>
+  </view>
+  <view class="rowRole" style="position: relative; left: -2rpx; top: 20rpx; width: 712rpx; height: 400rpx; display: flex; box-sizing: border-box">
+    <view class="character-container" style="position: relative; left: -34rpx; top: 0rpx">
+      <view class="chat-bubble role">
+      <text>{{roletext[2]}}</text>
+      </view>
+      <view class="image_role-container">
+        <image src="../../images/小象.png" class="image_role"></image>
+      </view>
+    </view>
+    <view class="character-container" style="position: relative; left: -34rpx; top: 0rpx">
+      <view class="chat-bubble role" >
+      <text>{{roletext[3]}}</text>
+      </view>
+      <view class="image_role-container">
+        <image src="../../images/小熊猫.png" class="image_role"></image>
+      </view>
+    </view>
+  </view>
+  <!--对话框-->
+  <view class="input-container" style="position: relative; left: 0rpx; top: -443rpx; width: 712rpx; height: 293rpx; display: flex; box-sizing: border-box">
+      <!-- 语音输入框 -->
+      <view wx:if="{{!isTextInput}}" class="voice-input" style="position: relative; left: 0rpx; top: 416rpx; width: 750rpx; height: 162rpx; display: flex; box-sizing: border-box">
+        <button class="icon" bindtap="switchToTextInput" style="position: relative; left: 0rpx; top: 0rpx; width: 120rpx; height: 70rpx; display: block; box-sizing: border-box">
+          <image style="width: 56rpx; height: 70rpx; display: inline-block; box-sizing: border-box; position: relative; left: -15rpx; top: -16rpx" src="../../images/弹出键盘.png" />
+        </button>
+        <button class="record-button" bindtouchstart="startRecording" bindtouchend="stopRecording" 
+        bindtouchcancel="stopRecording" style="position: relative; left: 0rpx; top: 0rpx; width: 595rpx; height: 97rpx; display: flex; box-sizing: border-box;">
+          <image style="width: 120rpx; height: 120rpx; display: block; box-sizing: border-box" src="../../images/speaking.png" />
+        </button>
+      </view>
+      
+      <!-- 文字输入框 -->
+      <view wx:if="{{isTextInput}}" class="text-input" style="position: relative; left: 0rpx; top: 480rpx; width: 750rpx; height: 70rpx; display: flex; box-sizing: border-box">
+        <button class="icon" bindtap="switchToVoiceInput" style="position: relative; left: 0rpx; top: 0rpx; width: 60rpx; height: 60rpx; display: block; box-sizing: border-box;border-radius: 50%">
+          <image style="width: 40rpx; height: 40rpx; display: inline-block; box-sizing: border-box; position: relative; left: -20rpx; top: -3rpx;border-radius: 50%" src="../../images/录音.png" />
+        </button>
+        <input type="text" 
+        value="{{inputValue}}" bindinput="onInputChange" placeholder="输入文字..." />
+        <button class="send-button" bindtap="sendText">
+          发送
+        </button>
+      </view>
+    </view>
+
+</view>

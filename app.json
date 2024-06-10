@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/voice/voice",
-    "pages/aliAI/aliAI"
+    "pages/aliAI/aliAI",
+    "pages/AiImage/AiImage",
+    "pages/story/story"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -13,18 +15,24 @@
   "tabBar": {
     "list": [
       {
-        "iconPath": "image/Home.png",
-        "selectedIconPath": "image/Home (1).png",
+        "iconPath": "images/Home.png",
+        "selectedIconPath": "images/Home (1).png",
         "pagePath": "pages/index/index",
         "text": "首页"
       },
       {
-        "iconPath": "image/日志.png",
-        "selectedIconPath": "image/日志 (1).png",
+        "iconPath": "images/日志.png",
+        "selectedIconPath": "images/日志 (1).png",
         "pagePath": "pages/logs/logs",
         "text": "日志"
       }
     ]
+  },
+  "plugins": {
+    "ihearing-eval": {
+        "version": "0.0.2",
+        "provider": "wx63d6102e26f0a3f8"
+    }
   },
   "style": "v2",
   "componentFramework": "glass-easel",

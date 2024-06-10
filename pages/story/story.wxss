@@ -1,0 +1,328 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.voice-input, .text-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.record-button {
+  border-radius: 50%; /* 设置为圆形 */
+  padding: 10px;
+  width: 50px; /* 设置宽度 */
+  height: 50px; /* 设置高度 */
+  flex: 1;
+  background-color: #00bfa5;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.record-button:active {
+  background-color: #969696;
+}
+
+.record-button image {
+  border-radius: 50%; /* 设置为圆形 */
+  padding: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+.text-input input {
+  flex: 1;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.send-button {
+  background-color: #00bfa5;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+}
+/* 样式定义 */
+/* 样式定义 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 使对话区域从顶部开始 */
+  height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.conversation {
+  width: 100%;
+  max-height: 70vh; /* 设置最大高度 */
+  overflow-y: scroll; /* 启用垂直滚动 */
+  -webkit-overflow-scrolling: touch; /* 优化触摸设备滚动 */
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc; /* 添加边框 */
+  border-radius: 10px; /* 添加圆角 */
+}
+
+.message {
+  display: flex;
+  margin: 5px 0;
+}
+
+.user {
+  justify-content: flex-end;
+}
+
+.assistant {
+  justify-content: flex-start;
+}
+
+.bubble {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.user .bubble {
+  background-color: #1aad19;
+  color: white;
+}
+
+.assistant .bubble {
+  background-color: #e6e6e6;
+  color: black;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.send-button {
+  padding: 10px 20px;
+  background-color: #1aad19;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+/*卡片*/
+/* 样式定义 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.toggle-button {
+  padding: 10px 20px;
+  background-color: #1aad19;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* 确保覆盖在其他元素之上 */
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.card-container {
+  perspective: 1000px; /* 为3D翻转提供视角 */
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 200px;
+  height: 250px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.card-front {
+  background-color: white;
+}
+
+.card-back {
+  background-color: #f1f1f1;
+  transform: rotateY(180deg);
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-subtitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-content {
+  text-align: left;
+  overflow: auto;
+}
+
+.select-button {
+  margin-top: 5px;
+  padding: 0px 0px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 50px;
+}
+
+.close-button {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/*图片*/
+.image_role-container {
+  width: 80%;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10rpx;
+}
+
+.image_role {
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.rowRole {
+  display: flex;
+  justify-content: space-around; /* 均匀分布 */
+  align-items: flex-start; /* 从顶部对齐 */
+  width: 100%;
+  height: 150%;
+}
+
+
+/*文本*/
+.character-container {
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  align-items: center;
+  margin: 5px;
+}
+.chat-bubble {
+  background-color: green;
+  border-radius: 15px;
+  padding: 10px;
+  color: white;
+  position: absolute; /* 绝对定位 */
+  top: -10px; /* 图片的顶部对齐 */
+  right: -10px; /* 图片的右边对齐 */
+  width:auto; /* 根据需要调整宽度 */
+  text-align: center;
+}
+
+.role {
+  background-color: #1aad19;
+  color: white;
+}
+
+.background {
+  background-color: #e6e6e6;
+  color: black;
+  position: relative; /* 确保可以使用 top 属性 */
+  padding-bottom: 10px;
+}
+.character-container {
+  width: 150px; /* 根据需要调整 */
+  height: 100px; /* 根据需要调整 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* 相对定位 */
+}

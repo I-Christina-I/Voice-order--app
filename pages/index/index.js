@@ -25,6 +25,18 @@ Page({
     });
   },
 
+  navigateToEvaluate: function () {
+    wx.navigateTo({
+      url: '/pages/AiImage/AiImage',
+    })
+  },
+
+  navigateToStory: function(){
+    wx.navigateTo({
+      url: '/pages/story/story',
+    })
+  },
+
   bindViewTap() {
     wx.navigateTo({
       url: '../logs/logs'

@@ -1,10 +1,54 @@
-<view class="container">
+<view class="container" style="width: 420rpx; height: 299rpx; display: flex; box-sizing: border-box">
+  <view class="bubbleBox" wx:for="{{msgList}}" style="position: relative; left: 243rpx; top: 879rpx">
+    <!-- 左侧的头像昵称 -->
+    <view style="text-align: center;">
+      <t-avatar size='small' image="{{item.avatarUrl}}" />
+      <view style="padding-top: 10rpx;font-size: 24rpx;width: 100rpx;">
+        {{item.nickname}}
+      </view>
+    </view>
+    <!-- 左侧的聊天气泡尖角 -->
+    <view class="triangle-top-left">
+      <view class="triangle-top-left2"></view>
+    </view>
+    <!-- 聊天气泡 -->
+    <view class="bkbubble-left" style="position: relative; left: 0rpx; top: 0rpx">
+      <rich-text nodes="{{item.content}}" />
+      <view style="margin-top: 20rpx;" wx:for="{{item.imgList}}" wx:for-item="imgItem">
+        <image style="position: relative; left: 25rpx; top: -85rpx" src="{{imgItem}}" mode="widthFix" />
+      </view>
+    </view>
+  </view>
+
+
+  <view class="chat-bubble user">
+    <text>用户的消息内容</text>
+  </view>
+  <view class="chat-bubble assistant">
+    <text>助手的消息内容</text>
+  </view>
   <button
     bindtouchstart="startRecording"
     bindtouchend="stopRecording"
     bindtouchcancel="stopRecording"
-  >
+   style="position: relative; left: 0rpx; top: 277rpx">
     按住说话
   </button>
   <text>{{recognitionResult}}</text>
+  <view class="row" style="position: relative; left: -22rpx; top: 420rpx">
+    <view class="image-container">
+      <image src="../../images/兔子.png" class="image"></image>
+    </view>
+    <view class="image-container">
+      <image src="../../images/小狐狸.png" class="image"></image>
+    </view>
+  </view>
+  <view class="row" style="position: relative; left: 0rpx; top: 112rpx">
+    <view class="image-container">
+      <image src="../../images/小象.png" class="image"></image>
+    </view>
+    <view class="image-container">
+      <image src="../../images/小熊猫.png" class="image"></image>
+    </view>
+  </view>
 </view>

@@ -14,6 +14,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    conversationHistory: [] // 全局对话历史
   }
 })
