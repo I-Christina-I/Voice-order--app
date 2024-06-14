@@ -1,0 +1,37 @@
+<view class="page">
+  <view class="reading-content">
+    <image src="{{pages[currentPage].image}}" class="story-image" mode="widthFix"/>
+  </view>
+  <view class="navigation-buttons">
+    <button bindtap="prevPage" disabled="{{currentPage === 0}}">上一页</button>
+    <button bindtap="nextPage" >下一页</button>
+  </view>
+  <view class="bottom-bar">
+    <image src="/images/兔子.png" class="character-icon" data-character="character1" bindtap="selectCharacter"></image>
+    <image src="/images/小狐狸.png" class="character-icon" data-character="character2" bindtap="selectCharacter"></image>
+    <image src="/images/小象.png" class="character-icon" data-character="character3" bindtap="selectCharacter"></image>
+    <image src="/images/小熊猫.png" class="character-icon" data-character="character4" bindtap="selectCharacter"></image>
+  </view>
+  <view class="input-container">
+    <!-- 语音输入框 -->
+    <view wx:if="{{!isTextInput}}" class="voice-input">
+      <button class="icon" bindtap="switchToTextInput">
+        <image src="../../images/弹出键盘.png" class="icon-image"/>
+      </button>
+      <button class="record-button" bindtouchstart="startRecording" bindtouchend="stopRecording" bindtouchcancel="stopRecording">
+        <image src="../../images/speaking.png" class="record-image"/>
+      </button>
+    </view>
+    
+    <!-- 文字输入框 -->
+    <view wx:if="{{isTextInput}}" class="text-input">
+      <button class="icon" bindtap="switchToVoiceInput">
+        <image src="../../images/录音.png" class="icon-image"/>
+      </button>
+      <input class="text-input-field" type="text" value="{{inputValue}}" bindinput="onInputChange" placeholder="输入文字..."/>
+      <button class="send-button" bindtap="sendText">
+        发送
+      </button>
+    </view>
+  </view>
+</view>

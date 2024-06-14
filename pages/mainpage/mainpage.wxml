@@ -1,0 +1,12 @@
+<!--pages/mainpage/mainpage.wxml-->
+<view class="container">
+  <image src="../../images/choose.jpg" class="background-image" mode="aspectFill"></image>
+  <view class="books-container">
+    <block wx:for="{{books}}" wx:key="id">
+      <view class="book-item" bindtap="navigateToDetail" data-id="{{item.id}}" bindmouseenter="onMouseEnter" bindmouseleave="onMouseLeave">
+        <image src="{{item.cover}}" class="book-cover"></image>
+      </view>
+    </block>
+  </view>
+</view>
+<bottom-bar></bottom-bar><bottom-bar></bottom-bar>

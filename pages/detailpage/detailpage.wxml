@@ -1,0 +1,30 @@
+<view class="container">
+  <!-- 上半部分，背景图片 -->
+  <view class="background">
+    <image src="{{book.cover}}" class="cover-image"></image>
+    <view class="blur-overlay"></view>
+  </view>
+
+  <!-- 下半部分，白色框 -->
+  <view class="content">
+    <text class="book-title">{{book.title}}</text>
+    <text class="book-description">{{book.description}}</text>
+    <button bindtap="chooseCharacter">选择角色</button>
+  </view>
+
+  <!-- 角色选择弹窗 -->
+  <view wx:if="{{showCharacterSelection}}" class="character-selection">
+    <view class="overlay" bindtap="closeCharacterSelection"></view>
+    <view class="character-container">
+      <block wx:for="{{characters}}" wx:key="id">
+        <view class="character-item" bindtap="selectCharacter" data-id="{{item.id}}">
+          <image src="{{item.avatar}}" class="character-avatar"></image>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+</view>
+<bottom-bar></bottom-bar>
+

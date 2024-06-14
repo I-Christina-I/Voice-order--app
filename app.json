@@ -1,16 +1,22 @@
 {
   "pages": [
+    "pages/welcomepage/welcomepage",
+    "pages/mainpage/mainpage",
+    "pages/detailpage/detailpage",
+    "pages/reading/reading",
+    "pages/profilepage/profilepage",
     "pages/index/index",
     "pages/logs/logs",
     "pages/voice/voice",
     "pages/aliAI/aliAI",
     "pages/AiImage/AiImage",
-    "pages/story/story"
+    "pages/story/story",
+    "components/bottom-bar/bottom-bar"
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "语音点餐",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarTitleText": "欢迎你，小朋友！",
+    "navigationBarBackgroundColor": "#FFE9FF"
   },
   "tabBar": {
     "list": [
@@ -27,12 +33,6 @@
         "text": "日志"
       }
     ]
-  },
-  "plugins": {
-    "ihearing-eval": {
-        "version": "0.0.2",
-        "provider": "wx63d6102e26f0a3f8"
-    }
   },
   "style": "v2",
   "componentFramework": "glass-easel",

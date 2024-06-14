@@ -1,0 +1,41 @@
+/* pages/welcomepage/welcomepage.wxss */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.welcome-content {
+ 
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 250px;
+}
+
+button {
+  width: 100%;
+  margin-top: 0px;
+  color:rgb(228, 95, 251);
+  font-size: larger;
+  background-color: rgba(238, 236, 103, 0.924);
+  border-style: solid;
+  border-top-color: rgb(242, 245, 218);
+  border-top-width: 5px;
+  border-right-color: rgb(242, 245, 218);
+  border-right-width: 5px;
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+}

@@ -1,0 +1,11 @@
+<!--pages/welcomepage/welcomepage.wxml-->
+<view class="container">
+  <image src="../../images/welcome.jpg" class="background-image" mode="aspectFill"></image>
+  <view class="welcome-content">
+    <button bindtap="navigateToMainPage">进入绘本世界</button>
+  </view>
+  
+</view>
+
+
+

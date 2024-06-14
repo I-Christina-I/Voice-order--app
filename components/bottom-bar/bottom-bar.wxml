@@ -1,0 +1,6 @@
+<!--components/bottom-bar/bottom-bar.wxml-->
+<view class="bottom-bar">
+  <image src="/images/主页.png" bindtap="goToMainPage" class="bottom-bar-icon"></image>
+  <image src="/images/我的.png" bindtap="goToProfilePage" class="bottom-bar-icon"></image>
+</view>
+
