@@ -1,12 +1,23 @@
 {
-  "pages": [
+  "pages":[
     "pages/welcomepage/welcomepage",
-    "pages/mainpage/mainpage",
-    "pages/detailpage/detailpage",
-    "pages/reading/reading",
-    "pages/profilepage/profilepage",
-    "pages/voice/voice",
-    "components/bottom-bar/bottom-bar"
+    "pages/mainpage/mainpage"
+  ],
+  "subpackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "detailpage/detailpage"
+      ]
+    }, {
+      "root": "packageB",
+      "name": "pack2",
+      "pages": [
+        "profilepage/profilepage",
+        "reading/reading",
+        "voice/voice"
+      ]
+    }
   ],
   "window": {
     "navigationBarTextStyle": "black",

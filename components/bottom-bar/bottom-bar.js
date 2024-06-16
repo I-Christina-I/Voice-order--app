@@ -7,7 +7,7 @@ Component({
     },
     goToProfilePage() {
       wx.navigateTo({
-        url: '/pages/profilepage/profilepage'
+        url: '/packageB/profilepage/profilepage'
       });
     }
   }

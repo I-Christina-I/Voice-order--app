@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "bottom-bar": "/components/bottom-bar/bottom-bar"
+  }
+}

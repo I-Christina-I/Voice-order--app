@@ -11,7 +11,7 @@ Page({
   navigateToDetail(event) {
     const id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: `/pages/detailpage/detailpage?id=${id}`
+      url: `/packageA/detailpage/detailpage?id=${id}`
     });
   },
   onMouseEnter(event) {
