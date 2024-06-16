@@ -136,4 +136,27 @@
 }
 
 
+.dialog-container {
+  display: flex;
+  align-items: center;
+  margin-top: 120px; /* 增加 margin-top 使对话框向下移动 */
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
 
+.character-avatar {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.dialog-text {
+  max-width: 150px;
+  padding: 10px;
+  border: 1px solid rgb(235, 169, 215);
+  border-radius: 5px;
+  background-color: rgb(252, 245, 151);
+}

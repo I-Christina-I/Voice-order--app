@@ -128,3 +128,117 @@ button {
   border-radius: 5px;
   font-size: 16px;
 }
+
+
+/*卡片*/
+/* 样式定义 */
+
+.toggle-button {
+  padding: 10px 20px;
+  background-color: #1aad19;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* 确保覆盖在其他元素之上 */
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.card-container {
+  perspective: 1000px; /* 为3D翻转提供视角 */
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 200px;
+  height: 250px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.card-front {
+  background-color: white;
+}
+
+.card-back {
+  background-color: #f1f1f1;
+  transform: rotateY(180deg);
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-subtitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-content {
+  text-align: left;
+  overflow: auto;
+}
+
+.select-button {
+  margin-top: 5px;
+  padding: 0px 0px;
+  background-color: rgb(235, 107, 177);
+  color: white;
+  border: none;
+  border-radius: 50px;
+}
+
+.close-button {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+}

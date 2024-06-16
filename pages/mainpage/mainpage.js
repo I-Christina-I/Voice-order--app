@@ -4,7 +4,7 @@ Page({
     books: [
       { id: 1, cover: '../../images/book1.jpg' },
       { id: 2, cover: '../../images/story.png' },
-      { id: 3, cover: '../../images/book1.jpg' }
+      { id: 3, cover: '../../images/Aistory.png' }
       // 添加更多的绘本数据
     ]
   },

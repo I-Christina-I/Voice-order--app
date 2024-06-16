@@ -5,12 +5,7 @@
     "pages/detailpage/detailpage",
     "pages/reading/reading",
     "pages/profilepage/profilepage",
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/voice/voice",
-    "pages/aliAI/aliAI",
-    "pages/AiImage/AiImage",
-    "pages/story/story",
     "components/bottom-bar/bottom-bar"
   ],
   "window": {
@@ -18,22 +13,7 @@
     "navigationBarTitleText": "欢迎你，小朋友！",
     "navigationBarBackgroundColor": "#FFE9FF"
   },
-  "tabBar": {
-    "list": [
-      {
-        "iconPath": "images/Home.png",
-        "selectedIconPath": "images/Home (1).png",
-        "pagePath": "pages/index/index",
-        "text": "首页"
-      },
-      {
-        "iconPath": "images/日志.png",
-        "selectedIconPath": "images/日志 (1).png",
-        "pagePath": "pages/logs/logs",
-        "text": "日志"
-      }
-    ]
-  },
+  
   "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
