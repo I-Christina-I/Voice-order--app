@@ -2,8 +2,8 @@
 Page({
   data: {
     books: [
-      { id: 1, cover: '/packageA/images/story1-1.png' },
-      { id: 2, cover: '/packageA/images/story2-1.png' },
+      { id: 1, cover: '../../images/story1-1.png' },
+      { id: 2, cover: '../../images/story2-1.png' },
       { id: 3, cover: '../../images/Aistory.png' }
       // 添加更多的绘本数据
     ]

@@ -1,4 +1,5 @@
 .book-container {
+  background-color: wheat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,11 +11,14 @@
 
 .image-class {
   position: absolute; /* 绝对定位，相对于 .book-container */
-  top: 0;
+  top: -10vh;
   left: 0;
   width: 100%; /* 宽度充满容器 */
   height: 100vh; /* 高度等于视口高度 */
   object-fit: cover; /* 保持宽高比覆盖整个容器 */
+  border-style: solid;
+  border-top-color: violet;
+  border-top-width: 10px;
 }
 
 .controls {
@@ -25,10 +29,30 @@
   justify-content: center; /* 按钮水平居中 */
   align-items: center; /* 垂直居中 */
   padding: 10px; /* 底部内边距 */
-  /* 其他控制栏样式 */
+  background-color: rgba(240, 228, 177, 0.9); /* 半透明背景 */
 }
 
-.control-buttons button {
+.controls button {
+
+  background-color: #ec6ad0; /* 按钮背景颜色 */
+  color: rgb(255, 255, 255); /* 按钮文字颜色 */
   margin: 0 10px; /* 按钮之间的间隔 */
-  /* 其他按钮样式 */
+  padding: 10px 20px; /* 按钮内边距 */
+  font-size: 16px; /* 按钮文字大小 */
+  border: none; /* 去掉边框 */
+  border-radius: 50px; /* 圆角 */
+  border-style: solid;
+  border-color: rgb(88, 44, 88);
+  border-top-width: 5px;
+  border-right-width: 5px;
+  display: flex; /* 使用 Flexbox 布局 */
+  flex-direction: column; /* 使图标和文字垂直排列 */
+  align-items: center; /* 图标和文字水平居中 */
+  justify-content: center; /* 图标和文字垂直居中 */
+}
+
+.button-icon {
+  width: 20px; /* 图标宽度 */
+  height: 20px; /* 图标高度 */
+  margin-right: 5px; /* 图标和文字之间的间隔 */
 }

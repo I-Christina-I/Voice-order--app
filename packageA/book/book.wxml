@@ -2,8 +2,10 @@
   <image src="{{currentImage}}" class="image-class" mode="aspectFit"></image>
   <view class="controls">
     <button bindtap="turnPage" data-direction="prev">上一页</button>
-<button bindtap="playPauseVoice"> {{isPlaying ? '暂停' : '播放'}} </button>
-<button bindtap="turnPage" data-direction="next">下一页</button>
-<button bindtap="toggleAutoPlay">自动播放</button>
+    <button bindtap="playPauseVoice">
+      <image src="{{isPlaying ? '/images/pause.png' : '/images/play.png'}}" class="button-icon"></image> {{isPlaying ? '暂停' : '播放'}}
+    </button>
+    <button bindtap="turnPage" data-direction="next">下一页</button>
+    <button bindtap="toggleAutoPlay">自动播放</button>
   </view>
 </view>

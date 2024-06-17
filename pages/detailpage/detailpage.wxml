@@ -6,13 +6,14 @@
   </view>
 
   <!-- 下半部分，白色框 -->
-  <view class="content">
-    <text class="book-title">{{book.title}}</text>
-    <text class="book-description">{{book.description}}</text>
-    <button bindtap="chooseCharacter" wx:if="{{isChoosing}}">选择角色</button>
-    <button bindtap="enterStory" wx:if="{{isenter}}">进入绘本</button>
+  <view class="con-container">
+    <view class="content">
+      <text class="book-title">{{book.title}}</text>
+      <text class="book-description">{{book.description}}</text>
+      <button bindtap="chooseCharacter" wx:if="{{isChoosing}}">选择角色</button>
+      <button bindtap="enterStory" wx:if="{{isenter}}">进入绘本</button>
+   </view>
   </view>
-  
 
   <!-- 角色选择弹窗 -->
   <view wx:if="{{showCharacterSelection}}" class="overlay">

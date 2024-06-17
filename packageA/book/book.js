@@ -39,12 +39,19 @@ Page({
   },
 
   turnPage(e) {
-    const direction = e.detail.direction;
+    const direction = e.currentTarget.dataset.direction;
     let newIndex = this.data.currentIndex;
 
     if (direction === 'prev') {
       newIndex = newIndex - 1 < 0 ? this.data.images.length - 1 : newIndex - 1;
     } else if (direction === 'next') {
+      if (newIndex + 1 >= this.data.images.length) {
+        // 当前为最后一页，跳转到主页
+        wx.redirectTo({
+          url: '/pages/mainpage/mainpage',
+        });
+        return;
+      }
       newIndex = (newIndex + 1) % this.data.images.length;
     }
 
@@ -52,14 +59,17 @@ Page({
       currentIndex: newIndex,
       currentImage: this.data.images[newIndex],
     });
+
+  
   },
 
   playVoice(index) {
     const audioUrl = this.data.audios[index];
     if (!audioUrl) return;
 
-    if (this.data.audioContext && this.data.audioContext.playing) {
+    if (this.data.audioContext) {
       this.data.audioContext.stop();
+      this.data.audioContext.destroy(); // 销毁旧的音频上下文
     }
 
     const newAudioContext = wx.createInnerAudioContext();
@@ -73,7 +83,7 @@ Page({
 
     if (this.data.autoPlayEnabled) {
       newAudioContext.onEnded(() => {
-        this.turnPage('next');
+        this.turnPage({ currentTarget: { dataset: { direction: 'next' } } });
       });
     }
   },
@@ -104,6 +114,7 @@ Page({
   stopVoice() {
     if (this.data.audioContext) {
       this.data.audioContext.stop();
+      this.data.audioContext.destroy(); // 销毁音频上下文
       this.setData({
         isPlaying: false,
         autoPlayEnabled: false,
