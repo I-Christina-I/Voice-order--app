@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="bubbleBox" wx:for="{{msgList}}" wx:key="*this" style="margin-top: 20rpx;">
+    <!-- 左侧的头像昵称 -->
+    <view class="avatar-section">
+      <image src="{{item.avatarUrl}}" class="avatar"/>
+      <view class="nickname">{{item.nickname}}</view>
+    </view>
+    <!-- 左侧的聊天气泡尖角 -->
+    <view class="triangle-top-left">
+      <view class="triangle-top-left2"></view>
+    </view>
+    <!-- 聊天气泡 -->
+    <view class="bkbubble-left">
+      <rich-text nodes="{{item.content}}" />
+      <view wx:for="{{item.imgList}}" wx:for-item="imgItem" class="img-section">
+        <image src="{{imgItem}}" mode="widthFix" class="message-image"/>
+      </view>
+    </view>
+  </view>
+
+  <button class="record-button"
+    bindtouchstart="startRecording"
+    bindtouchend="stopRecording"
+    bindtouchcancel="stopRecording">
+    按住说话
+  </button>
+  <text class="recognition-result">{{recognitionResult}}</text>
+
+  <view class="row" style="margin-top: 20rpx;">
+    <view class="image-container">
+      <image src="../../images/兔子.png" class="image"></image>
+    </view>
+    <view class="image-container">
+      <image src="../../images/小狐狸.png" class="image"></image>
+    </view>
+  </view>
+  <view class="row" style="margin-top: 20rpx;">
+    <view class="image-container">
+      <image src="../../images/小象.png" class="image"></image>
+    </view>
+    <view class="image-container">
+      <image src="../../images/小熊猫.png" class="image"></image>
+    </view>
+  </view>
+</view>
+
+

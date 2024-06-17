@@ -1,0 +1,34 @@
+.book-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* 宽度充满整个屏幕 */
+  min-height: 100vh; /* 高度至少为屏幕高度 */
+  position: relative; /* 相对定位，确保控制按钮可以定位到底部 */
+}
+
+.image-class {
+  position: absolute; /* 绝对定位，相对于 .book-container */
+  top: 0;
+  left: 0;
+  width: 100%; /* 宽度充满容器 */
+  height: 100vh; /* 高度等于视口高度 */
+  object-fit: cover; /* 保持宽高比覆盖整个容器 */
+}
+
+.controls {
+  width: 100%; /* 确保 controls 宽度充满屏幕 */
+  position: fixed; /* 固定定位到视口底部 */
+  bottom: 0; /* 定位到屏幕底部 */
+  display: flex; /* 使用 Flexbox 布局 */
+  justify-content: center; /* 按钮水平居中 */
+  align-items: center; /* 垂直居中 */
+  padding: 10px; /* 底部内边距 */
+  /* 其他控制栏样式 */
+}
+
+.control-buttons button {
+  margin: 0 10px; /* 按钮之间的间隔 */
+  /* 其他按钮样式 */
+}

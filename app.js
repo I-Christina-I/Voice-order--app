@@ -15,6 +15,10 @@ App({
   },
   globalData: {
     userInfo: null,
-    conversationHistory: [] // 全局对话历史
+    conversationHistory: [], // 全局对话历史
+    roleInf: [], //角色信息
+    sceneImagePath:'', //场景路径
+    characterIMAGE:[], //角色图片
+    selectedCard:'' //选中卡片id
   }
 })

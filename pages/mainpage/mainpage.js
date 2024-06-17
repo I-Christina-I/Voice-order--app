@@ -2,16 +2,16 @@
 Page({
   data: {
     books: [
-      { id: 1, cover: '../../images/book1.jpg' },
-      { id: 2, cover: '../../images/story.png' },
-      { id: 3, cover: '../../images/book1.jpg' }
+      { id: 1, cover: '/packageA/images/story1-1.png' },
+      { id: 2, cover: '/packageA/images/story2-1.png' },
+      { id: 3, cover: '../../images/Aistory.png' }
       // 添加更多的绘本数据
     ]
   },
   navigateToDetail(event) {
     const id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: `/pages/detailpage/detailpage?id=${id}`
+      url: `/packageA/detailpage/detailpage?id=${id}`
     });
   },
   onMouseEnter(event) {

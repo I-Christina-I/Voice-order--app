@@ -49,16 +49,16 @@ Page({
       {
 
         newBook = {
-          cover: '../../images/story1-1.png', // 示例封面路径
-          title: '做勇敢的自己',
-          description: '《AI创作童话》是一本由人工智能自动生成的儿童绘本，充满了无尽的想象力和创造力。每个故事、每个角色、每一幅插图都由AI独立创作，为孩子们呈现一个前所未有的奇幻世界。这本书不仅展示了AI的强大能力，也为小读者带来了无限的惊喜和乐趣。'
+          cover: '/packageA/images/story1-1.png', // 示例封面路径
+          title: '做最勇敢的自己',
+          description: '《做最勇敢的自己》是一本儿童有声绘本，讲述了如何克服恐惧和战胜自己的故事。故事通过描绘主人公克服恐惧的过程，传达了一些重要的价值观和教育意义。它鼓励孩子们勇敢面对挑战，相信自己的能力，并找到解决问题的方法。同时，故事还强调了坚持和努力的重要性，以及从失败中学习和成长的价值。'
         };
       }
       else{
         newBook = {
-          cover: '../../images/story.png', // 示例封面路径
-          title: 'AI创作童话',
-          description: '《AI创作童话》是一本由人工智能自动生成的儿童绘本，充满了无尽的想象力和创造力。每个故事、每个角色、每一幅插图都由AI独立创作，为孩子们呈现一个前所未有的奇幻世界。这本书不仅展示了AI的强大能力，也为小读者带来了无限的惊喜和乐趣。'
+          cover: '/packageA/images/story2-1.png', // 示例封面路径
+          title: '蚯蚓的日记',
+          description: '《蚯蚓的日记》是一本儿童有声绘本，讲述了一只蚯蚓的生活故事和成长经历。故事通过蚯蚓的视角，描绘了它在土壤中的生活和各种冒险。蚯蚓每天都在土壤中挖洞、寻找食物，并且与其他小动物和自然界的各种挑战进行斗争。 故事不仅展示了蚯蚓的日常生活，还通过这些生活场景，传达了一些关于环境、自然界和生态系统的基本知识。同时，它也教育孩子们关于勇敢、坚韧和适应力的重要性，因为蚯蚓每天都在面对各种各样的困难和挑战。'
         };
       }
       this.setData({
@@ -212,7 +212,7 @@ Page({
     });
     app.globalData.selectedCard=index
     wx.navigateTo({
-      url: `/pages/reading/reading?characterId=${index}&roleInf=${this.data.roleInf}&userRole=${this.data.userRole}&sceneImagePath=${that.data.sceneImagePath}&characterIMAGE=${this.data.characterIMAGE}`
+      url: `/packageB/reading/reading?characterId=${index}&roleInf=${this.data.roleInf}&userRole=${this.data.userRole}&sceneImagePath=${that.data.sceneImagePath}&characterIMAGE=${this.data.characterIMAGE}`
     });
     console.log(`选中的卡片索引: ${index}`);
   },
@@ -229,9 +229,8 @@ Page({
 
   enterStory()
   {
-    跳转到具体绘本
-    // wx.navigateTo({
-    //   url: '/pages/mainpage/mainpage'
-    // });
+    wx.navigateTo({
+      url: '/packageA/book/book'
+    });
   }
 });
