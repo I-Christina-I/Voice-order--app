@@ -1,10 +1,9 @@
 <view class="page">
   <view class="reading-content">
-    <image src="{{sceneImagePath}}" class="story-image" mode="widthFix"/>
+     <image src="{{sceneImagePath}}" class="story-image" mode="widthFix"/>   <!--{{sceneImagePath}} -->
   </view>
   <view class="navigation-buttons">
-    <button bindtap="prevPage" disabled="{{currentPage === 0}}">上一页</button>
-    <button bindtap="nextPage" >下一页</button>
+    <button bindtap="nextPage" wx:if="{{IsnextPage}}">下一页</button>
   </view>
   <view class="chat-bubble background" wx:if="{{isISpeaking}}">
       <text>{{narratorText}}</text>

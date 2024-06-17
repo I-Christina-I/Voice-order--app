@@ -1,0 +1,12 @@
+<view class="container">
+  <!-- AI头像 -->
+  <image src="/images/Aistory.png" class="avatar"></image>
+  
+  <!-- 对话气泡框 -->
+  <view class="dialog-box">
+    <text>{{suggestionText}}</text>
+  </view>
+
+  <!-- 退出按钮 -->
+  <button class="exit-button" bindtap="handleExit">退出</button>
+</view>

@@ -8,11 +8,12 @@
 }
 
 .reading-content {
-
-  width:100%;
+  width: 100%; /* 宽度填满容器 */
+  height: 300px; /* 设置固定高度 */
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box; /* 包括内边距和边框在内的元素总宽度和高度 */
 }
 
 .story-image {
@@ -159,4 +160,26 @@
   border: 1px solid rgb(235, 169, 215);
   border-radius: 5px;
   background-color: rgb(252, 245, 151);
+}
+
+
+/* 聊天气泡 */
+
+.chat-bubble {
+  background-color: green;
+  border-radius: 15px;
+  padding: 10px;
+  color: white;
+  position: absolute; /* 绝对定位 */
+  top: 50px; /* 图片的顶部对齐 */
+  right: -10px; /* 图片的右边对齐 */
+  width:auto; /* 根据需要调整宽度 */
+  text-align: center;
+}
+
+.background {
+  background-color: #e6e6e6;
+  color: black;
+  position: relative; /* 确保可以使用 top 属性 */
+  padding-bottom: 10px;
 }

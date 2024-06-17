@@ -4,7 +4,7 @@ const aiImageGenerator = require('../../utils/aiImageGenerator.js');
 var role="",words="",num=Math.floor(Math.random() * (10 - 4 + 1)) + 4;
 const prompt ={
    openstart: "请按照以下格式生成一个交互型的儿童故事绘本的4个随机主人公",
-   Description:"根据生成的四个角色，描述该儿童故事绘本的第一幕场景(100字以内)",
+   Description:"根据生成的四个角色，尽量简短的描述该儿童故事绘本的第一幕场景(100字以内)",
    decision:`按照如下格式同时根据以上场景进行故事展开场景中角色之间尽可能多的对话(角色说话顺序随机)：[(角色名称=${role},角色说话内容=${words}),(角色名称=${role},角色说话内容=${words}),(角色名称=${role},角色说话内容=${words})]`
 };
 Page({
@@ -121,7 +121,7 @@ Page({
             });
           } else {
             // 隐藏加载图示
-            // wx.hideLoading();
+             //wx.hideLoading();
             that.setData(result);
             that.data.sceneDescription=that.data.response;
             // 更新全局数据

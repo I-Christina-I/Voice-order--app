@@ -1,7 +1,11 @@
 const voice = require('../../utils/voice.js');
 const aliAI = require('../../utils/aliAI.js');
+const aiImageGenerator = require('../../utils/aiImageGenerator.js');
 const recorderManager = wx.getRecorderManager();
 const Delay = 2000; //对话延迟时间
+const Pagesum=1  //页面总数
+const dialogsum=4  //每个页面的总对话数量
+
 const options = {
   duration: 60000, // 录音时长，单位 ms
   sampleRate: 16000, // 百度语音识别要求16kHz采样率
@@ -10,10 +14,10 @@ const options = {
   format: 'pcm', // 百度语音识别支持 wav 格式
   frameSize: 50 // 指定帧大小，单位 KB
 };
-var role="",words="",num=Math.floor(Math.random() * (10 - 4 + 1)) + 4;
+var role="",words="";
 const prompt ={
    openstart: "请按照以下格式生成一个交互型的儿童故事绘本的4个随机主人公",
-   Description:"根据生成的四个角色，描述该儿童故事绘本的第一幕场景",
+   Description:"根据以上内容，尽量简短的描述该儿童故事绘本的第二幕场景(100字以内,也是最后一幕场景)",
    decision:`按照如下格式同时根据以上场景进行故事展开场景中角色之间尽可能多的对话(角色说话顺序随机)：[(角色名称=${role},角色说话内容=${words}),(角色名称=${role},角色说话内容=${words}),(角色名称=${role},角色说话内容=${words})]`
 };
 Page({
@@ -38,6 +42,7 @@ Page({
     currentCharacter:'',//当前角色的头像
     currentDialog: '', //当前的对话框
     currentPage: 0,
+    dialognum: dialogsum, //对话数
     isISpeaking: false,
   },
 
@@ -45,14 +50,21 @@ Page({
     const app=getApp();
     const that=this;
     console.log(options); // 确认参数传递是否正确
-    this.setData({
-      selectedCard: options.index,
+    that.setData({
+      selectedCard: app.globalData.selectedCard,
       roleInf:app.globalData.roleInf,
       userRole: options.userRole,
       sceneImagePath: app.globalData.sceneImagePath,
       characterIMAGE: app.globalData.characterIMAGE
     });
+    that.Animaltext();
+    
+  },
 
+  Animaltext:function(){
+    const that=this;
+    const app=getApp();
+    var num=Math.floor(Math.random() * (10 - 4 + 1)) + 4;
     let decision=`按照如下格式同时根据以上场景进行故事展开场景中角色之间尽可能多的对话(角色说话顺序随机，并且第${num}个角色为${this.data.userRole})：[(角色名称=${role},角色说话内容=${words}),(角色名称=${role},角色说话内容=${words}),(角色名称=${role},角色说话内容=${words})]`;
     aliAI.callApi(decision, app.globalData.conversationHistory, (err, result) => {
       if (err) {
@@ -75,14 +87,26 @@ Page({
   },
 
   Rolespeak:function (index = 0) {
+    const that=this;
+    const app=getApp();
     if (index >= this.data.dialogueContent.length) {
-      this.setData({
-        isISpeaking: true,
-        narratorText:`小朋友轮到你${this.data.userRole}说话啦`
-      });
+            if(that.data.dialognum>0)
+          {
+            this.setData({
+              isISpeaking: true,
+              narratorText:`小朋友轮到你${this.data.userRole}说话啦`
+            });
+          }
+          else{
+            that.data.dialognum=dialogsum;
+            this.setData({
+              IsnextPage: true,
+              isISpeaking: true,
+              narratorText:`第一幕场景结束了，请点击下一页`
+            });
+          }
       return;
     };// 终止条件
-    const that=this;
     let text = [[], [], [], []];
     let array = this.data.dialogueContent;
     let roleInf = this.data.roleInf;
@@ -129,25 +153,61 @@ Page({
     console.log('Reading page is ready');
   },
 
-  prevPage: function() {
-    if (this.data.currentPage > 0) {
+  nextPage: function() {
+    const app=getApp();
+    const that=this;
+    if (this.data.currentPage < Pagesum) {
       this.setData({
-        currentPage: this.data.currentPage - 1
+        IsnextPage: false,
+        isISpeaking: false,
+        narratorText: '',
+        currentPage: this.data.currentPage + 1
+      });
+      //故事描述
+      // 显示加载图示
+      wx.showLoading({
+        title: '正在加载...',
+        mask: true
+      });
+
+      aliAI.callApi(prompt.Description, app.globalData.conversationHistory, (err, result) => {
+        if (err) {
+          that.setData({
+            response: err
+          });
+        } else {
+          that.setData(result);
+          that.data.sceneDescription=that.data.response;
+          // 更新全局数据
+          app.globalData.conversationHistory = that.data.conversationHistory;
+          console.log("文本内容",that.data.response); 
+          //开始描述故事
+          //更新图片！！！！
+          that.generateSceneImages(that.data.response);
+          //更新图片！！！！
+      }
+      });   //调用大模型生成场景信息
+    } else {
+      // 跳转到 suggest 页面
+      wx.navigateTo({
+        url: '/packageA/suggest/suggest'
       });
     }
   },
 
-  nextPage: function() {
-    if (this.data.currentPage < this.data.pages.length - 1) {
-      this.setData({
-        currentPage: this.data.currentPage + 1
-      });
-    } else {
-      // 跳转到 voice 页面
-      wx.navigateTo({
-        url: '/pages/voice/voice'
-      });
-    }
+  generateSceneImages:function(text){
+    const app=getApp();
+    const that=this;
+    console.log(text);
+    let prompt="儿童绘本插画风格，有四个动物,其内容如下"+text
+    aiImageGenerator.generateImage(prompt, (sceneImagePath) => {
+      that.setData({ sceneImagePath: sceneImagePath });
+      app.globalData.sceneImagePath=sceneImagePath
+      console.log("生成的图片路径==", sceneImagePath);
+      // 隐藏加载图示
+      wx.hideLoading();
+      that.Animaltext();
+    },512);
   },
 
   selectCharacter: function(e) {
@@ -180,6 +240,7 @@ Page({
     const that = this;
     console.log("id=",that.data.selectedCard)
     this.setData({
+      dialognum:that.data.dialognum-1,
       isISpeaking:false,
       isSpeaking:true,
       currentDialog: this.data.inputValue,
@@ -222,7 +283,8 @@ Page({
     }
     },that.data.userRole);
     console.log('发送文本:', this.data.inputValue);
-    // 在这里处理发送文本的逻辑 
+    // 在这里处理发送文本的逻辑
+    
   },
 
   startRecording: function() {

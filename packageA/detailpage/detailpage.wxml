@@ -23,6 +23,8 @@
             <image src="{{characterIMAGE[0]}}" mode="aspectFit" class="role-image1"></image>
           </view>
           <view class="card-back">
+            <!-- 背景图片 -->
+            <image src="/packageA/images/card1.jpg" class="backgroundImage"></image>
             <text class="card-title">角色名称: {{roleInf[0][0]}}</text>
             <text class="card-subtitle">角色性格: {{roleInf[0][1]}}</text>
             <text class="card-content">角色描述: {{roleInf[0][2]}}</text>
@@ -36,6 +38,8 @@
             <image src="{{characterIMAGE[1]}}" mode="aspectFit" class="role-image2"></image>
           </view>
           <view class="card-back">
+            <!-- 背景图片 -->
+            <image src="/packageA/images/card2.jpg" class="backgroundImage"></image>
             <text class="card-title">角色名称: {{roleInf[1][0]}}</text>
             <text class="card-subtitle">角色性格: {{roleInf[1][1]}}</text>
             <text class="card-content">角色描述: {{roleInf[1][2]}}</text>
@@ -51,6 +55,8 @@
             <image src="{{characterIMAGE[2]}}" mode="aspectFit" class="role-image3"></image>
           </view>
           <view class="card-back">
+            <!-- 背景图片 -->
+            <image src="/packageA/images/card3.jpg" class="backgroundImage"></image>
             <text class="card-title">角色名称: {{roleInf[2][0]}}</text>
             <text class="card-subtitle">角色性格: {{roleInf[2][1]}}</text>
             <text class="card-content">角色描述: {{roleInf[2][2]}}</text>
@@ -64,6 +70,8 @@
             <image src="{{characterIMAGE[3]}}" mode="aspectFit" class="role-image4"></image>
           </view>
           <view class="card-back">
+            <!-- 背景图片 -->
+            <image src="/packageA/images/card4.jpg" class="backgroundImage"></image>
             <text class="card-title">角色名称: {{roleInf[3][0]}}</text>
             <text class="card-subtitle">角色性格: {{roleInf[3][1]}}</text>
             <text class="card-content">角色描述: {{roleInf[3][2]}}</text>
